@@ -70,20 +70,7 @@ array_diff(){
 
 
 restore_state(){
-	
-	: 'for (( i=0; i<${#SNAPSHOT_AFTER_FAILED[@]}; i++ ))
-	do
-		for (( j=0; j<${#SNAPSHOT_BEFORE_FAILED[@]}; j++ )) 
-		do
-			if [ $SNAPSHOT_AFTER_FAILED[$i] == $SNAPSHOT_BEFORE_FAILED[$j] ] 
-			then
-				echo "comes to delete"
-				echo ${SNAPSHOT_AFTER_FAILED[$i]}
-			fi
-		done
-	done '
-	echo "difference"
-	#echo ${SNAPSHOT_AFTER_FAILED[@]} ${SNAPSHOT_BEFORE_FAILED[@]} | tr ' ' '\n' | uniq -u
+	echo "restoring state"
 	bad_working_tree=($(array_diff SNAPSHOT_AFTER_FAILED[@] SNAPSHOT_BEFORE_FAILED[@]))
 	for REF_DEL in ${bad_working_tree[@]} 
 	do
