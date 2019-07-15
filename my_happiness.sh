@@ -69,7 +69,7 @@ array_diff(){
 
 create_symlink(){
 	local status=1
-	find $PATH_TO_GO -maxdepth 1  -type l -delete
+	#find $PATH_TO_GO -maxdepth 1  -type l -delete
 	# $1 this will be the path to go
 	local PATH_TO_GO=$1
 	# $ this will be the path to comaback
