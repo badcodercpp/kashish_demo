@@ -11,6 +11,12 @@ take_links_backup(){
 	local path_to_come_back=$PWD
 	local mappedFirstArg=release_"$1"
 	local mappedSecondArg=release_"$2"
+	if [ -d "$path_to_go" ] 
+	then
+		echo "$path_to_go file already exists"
+	else
+		mkdir "$path_to_go"
+	fi
 	cd "$path_to_go"
 	if [ -d "$mappedFirstArg" ] 
 	then
